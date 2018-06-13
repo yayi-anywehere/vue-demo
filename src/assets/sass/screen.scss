@@ -1,0 +1,180 @@
+/**
+ * CONTENTS
+ * 
+ * SETTINGS
+ * variable.scss...........变量集中存储文件
+ * maxins.scss.............maxins 存储文件
+ *
+ * TOOLS
+ *
+ * COMPONENTS
+ *
+ * BUSINESS
+ *
+ * BASE
+ * screen.scss..............针对当前站点主页的修饰
+ */
+
+@import "normalize", "variables","mixins","compass";
+
+%marginTop{
+	text-align:center;
+	margin-top: 7%;
+}
+%backgroundImag{
+	position: absolute;
+	top:-30px;
+	height:$height;
+	z-index:-5;
+}
+%navigation{
+	float: right;
+}
+body{
+	font: $fontFamily;
+	color: $while;
+	overflow: hidden;
+	background: inline-image("background.png");
+}
+h2{
+	color: $dark;
+	opacity: 0.7;
+	text-align:center;
+	line-height:50px;
+}
+h4{
+	color: $dark;
+	opacity: 0.5;
+	text-align:center;
+}
+/* header */
+// #headerTop{
+// 	color:$body-bg;
+// }
+.container{
+	width: 75%;
+	margin:0 auto;
+	@include breakpoint(lar){
+		width: 60%
+	};
+	@include breakpoint(med){
+		width: 80%
+	};
+	@include breakpoint(sma){
+		width: 90%
+	};
+}
+.navBg{
+	background:$deepGreen;
+	opacity:0.7;
+	height: 40px;
+	img{
+		margin: 5px 0;
+	}
+}
+.nav{
+	@include float-right;
+	margin: 4px 0;
+	li{
+		@include inline-block;
+		a{
+			color: #ece9e9;
+			text-decoration: none;
+			margin: 0 10px;
+			&:hover,&:focus{
+				background:none;
+				cursor: pointer;
+				color: $while;
+			}
+		}
+	}
+}
+
+/* tab1 */
+.ice{
+	background: inline-image("ice_one.png");
+	width:$width;
+	@extend %backgroundImag;
+}
+.ice1{
+	background: inline-image("ice_three.png");
+	width:$width*3;
+	@extend %backgroundImag;
+	@include animation(ice_bg 50s ease-out infinite)
+}
+@keyframes ice_bg {
+    0%{
+        left:0
+    }
+    100%{
+        left: -200%;
+    }
+}
+.tab-box{
+	@extend %marginTop;
+}
+.tab1-img{
+	@include border-radius(125px);
+	@include box-shadow(rgba(252,253,242,0.8) 0px 0px 30px);
+	width: $imageWH;
+}
+.tab1-summary{
+	width:$width;
+	@include border-radius(6px);
+	background:$while;
+	height: 4px;
+	margin: 20px 0;
+}
+.tab1-font{
+	font-size: $fontSize *1.5;	
+	margin: 55px auto 0;
+	text-align: center;
+	@include line-height(16);
+}
+.tab-icon{
+	width:$iconSize;
+	cursor: pointer;
+	@include transition-duration(2s);
+
+	&:hover{
+		@include rotate(180deg);
+	}
+}
+.tab1-footer{
+	background: inline-image("bg-bottom.png");
+	height:118px;
+	width:$width;
+	position:fixed;
+	bottom:0;
+}
+// pro
+.tab1-title{
+	color: $green;
+	margin-top:50px;
+}
+//work
+.workBox{
+	margin-top:70px;
+}
+//project
+.workProject{
+	margin-top:40px;
+	color:$dark;
+	line-height: 50px;
+	.project-small{
+		width: 10%;float:left;
+	}
+	.project-big{
+		width: 80%; float:left;
+	}
+	a{
+			color: $dark;
+			text-decoration: none;
+			font-size: $fontSize * 1.5;
+			&:hover,&:focus{
+				background:none;
+				color: $deepGreen;
+				text-decoration: none;
+			}
+		}
+}

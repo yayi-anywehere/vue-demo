@@ -1,0 +1,30 @@
+//透明度
+@mixin opacity($opacity){
+	opacity: $opacity;
+	$opacity-ie: $opacity*100;
+	filter: alpha(opacity=$opacity-ie); //IE8
+}
+// 行高
+@mixin line-height($heightValue:12){
+	line-height: $heightValue +px;
+	line-height: (0.125 * $heightValue) +rem;
+}
+// 响应式断点
+@mixin breakpoint($point){
+	@if $point == lar{
+		@media (min-width: 64.375em) {
+			@content;
+		}
+	}
+	@else  if $point == med{
+		@media (min-width: 50em){
+			@content;
+		}
+	}
+	@else if $point == sma{
+		@media (min-width: 37.5em){
+			@content;
+		}
+	}
+}
+
